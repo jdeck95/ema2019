@@ -1,9 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>raumplanung</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Raumplanung
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div class="container">
+        <h1>Registrierung</h1>
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Vorname</label>
+            <input type="text" class="form-control" id="vorname" required  [(ngModel)]="user.vorname" name="vorname">
+          </div>
+     
+          <div class="form-group">
+            <label for="alterEgo">Name</label>
+            <input type="text" class="form-control" id="nachname" required [(ngModel)]="user.name" name="nachname">
+          </div>
 
+          <div class="form-group">
+            <label for="alterEgo">E-Mail</label>
+            <input type="email" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+          </div>
+     
+          <button type="submit" class="btn btn-success">Registrieren</button>
+     
+        </form>
+    </div>
 </ion-content>
