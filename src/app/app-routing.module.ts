@@ -11,11 +11,8 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
   },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
-  { path: 'raumplanung', loadChildren: './raumplanung/raumplanung.module#RaumplanungPageModule' }
+  { path: 'raumplanung', loadChildren: './raumplanung/raumplanung.module#RaumplanungPageModule' },  { path: 'mensa', loadChildren: './mensa/mensa.module#MensaPageModule' }
+
 ];
 
 @NgModule({
