@@ -4,12 +4,28 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Mensa
+      Speiseplan {{ this.myDate.getDate() }}.{{ this.myDate.getMonth()+1 }}.{{ this.myDate.getFullYear() }} ({{ this.weekday }})
+      <ion-icon (click)="goToToday()" name="calendar" style="float: right;"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button style="cursor: pointer" (click)="getNextDayMeals()">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <ion-fab *ngIf="!today" vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button style="cursor: pointer" (click)="getPreviousDayMeals()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <p *ngIf="weekend" style="text-align: center; font-size: 24px;"> Am Wochenende hat die Mensa geschlossen</p>
+
   <ion-card *ngFor ="let meal of todaysMeal; let i = index">
     <ion-card-header>
       <ion-card-subtitle>{{ meal.Name }}</ion-card-subtitle>
