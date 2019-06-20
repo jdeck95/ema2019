@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { User } from '../models/user';
 import { UserService} from '../services/user.service';
 import { HttpClient} from '@angular/common/http';
@@ -10,11 +11,23 @@ import { HttpClient} from '@angular/common/http';
 })
 export class RaumplanungPage implements OnInit {
 
+  dashboard: Boolean;
+
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private storage: Storage
   ) { }
 
   ngOnInit() {
+
+    this.storage.get('deviceId').then((res) => {
+      console.log('Your deviceId is', res);
+      if (res) {
+        this.dashboard = true;
+      } else {
+        this.dashboard = false;
+      }
+    });
   }
 
   user = new User('', '', '', '');
@@ -26,6 +39,8 @@ export class RaumplanungPage implements OnInit {
       console.log(res);
       this.user.deviceid = res.deviceid;
       console.log(this.user);
+      this.dashboard = true;
+      this.storage.set('deviceId', this.user.deviceid);
     })
   }
 
