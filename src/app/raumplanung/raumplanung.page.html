@@ -9,7 +9,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="dashboard">
+  Dashboard
+</ion-content>
+
+<ion-content *ngIf="!dashboard">
     <div class="container">
         <h1>Registrierung</h1>
         <form (ngSubmit)="onSubmit()">
@@ -28,7 +32,7 @@
             <input type="email" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
           </div>
      
-          <button type="submit" class="btn btn-success">Registrieren</button>
+          <button type="submit" class="btn btn-primary">Registrieren</button>
      
         </form>
     </div>
