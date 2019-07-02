@@ -13,9 +13,9 @@ export class DashboardComponent implements OnInit {
 
   @Input('deviceId') deviceId: String;
 
+
   constructor(
   ) { }
-
 
   async ngOnInit() {
   }
