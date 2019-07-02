@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
 import {User} from '../models/user';
 
 // Injectable marks it as a service that can be injected

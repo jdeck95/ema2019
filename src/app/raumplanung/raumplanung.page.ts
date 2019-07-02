@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { User } from '../models/user';
 import { UserService} from '../services/user.service';
-import { HttpClient} from '@angular/common/http';
-
 @Component({
   selector: 'app-raumplanung',
   templateUrl: './raumplanung.page.html',
   styleUrls: ['./raumplanung.page.scss'],
 })
+
 export class RaumplanungPage implements OnInit {
 
   dashboard: Boolean;
+  deviceId: String;
 
   constructor(
     private userService: UserService,
@@ -21,7 +21,7 @@ export class RaumplanungPage implements OnInit {
   ngOnInit() {
 
     this.storage.get('deviceId').then((res) => {
-      console.log('Your deviceId is', res);
+      this.deviceId = res;
       if (res) {
         this.dashboard = true;
       } else {

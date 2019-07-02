@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content *ngIf="dashboard">
-  Dashboard
+  <app-dashboard [deviceId]="deviceId" ></app-dashboard>
 </ion-content>
 
 <ion-content *ngIf="!dashboard">

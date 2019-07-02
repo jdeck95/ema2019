@@ -1,0 +1,19 @@
+<ion-content>
+  <div class="container">
+      <h1>Neuen Raum anlegen</h1>
+      <form (ngSubmit)="createRoom()">
+        <div class="form-group">
+          <label for="name">Bezeichnung</label>
+          <input type="text" class="form-control" required  [(ngModel)]="room.Bez" id="raumname" name="bez">
+        </div>
+    
+        <div class="form-group">
+          <label for="alterEgo">Nummer</label>
+          <input type="text" class="form-control" required  [(ngModel)]="room.Rnr" id="raumnr" name="rnr">
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Bestätigen</button>
+    
+      </form>
+  </div>
+</ion-content>
