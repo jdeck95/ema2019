@@ -1,0 +1,9 @@
+<h3>
+  verfügbare Räume
+</h3>
+
+<ion-list *ngFor="let room of myRooms">
+  <ion-item>
+    <ion-label>{{ room['ID'] }}  ||  {{ room['Bez'] }}  || {{ room['Rnr'] }}</ion-label>
+  </ion-item>
+</ion-list>

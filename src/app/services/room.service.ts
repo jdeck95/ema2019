@@ -9,6 +9,7 @@ import {Room} from '../models/room';
 export class RoomService {
 
     private readonly createRoomBaseUrl: string = 'https://digiboard.htwk-leipzig.de/raumplanung/addroom.php?';
+    private readonly getRoomsBaseUrl: string = 'https://digiboard.htwk-leipzig.de/raumplanung/getrooms.php?';
 
     constructor(
         private http: HttpClient
@@ -18,6 +19,11 @@ export class RoomService {
     createRoom(roomData: Room, deviceid: String) {
         const url = `${this.createRoomBaseUrl}did=${deviceid}&bez=${roomData.Bez}&nr=${roomData.Rnr}`;
         
+        return this.http.get<Room>(url);
+    }
+
+    getRooms(deviceid: String) {
+        const url = `${this.getRoomsBaseUrl}did=${deviceid}`;
         return this.http.get<Room>(url);
     }
 }

@@ -12,6 +12,7 @@ export class RaumplanungPage implements OnInit {
 
   dashboard: Boolean;
   deviceId: String;
+  showRooms: boolean;
 
   constructor(
     private userService: UserService,
@@ -20,6 +21,7 @@ export class RaumplanungPage implements OnInit {
 
   ngOnInit() {
 
+    this.showRooms = false;
     this.storage.get('deviceId').then((res) => {
       this.deviceId = res;
       if (res) {
@@ -36,12 +38,15 @@ export class RaumplanungPage implements OnInit {
 
   onSubmit() {     
     this.userService.registerUser(this.user).subscribe(res => {
-      console.log(res);
       this.user.deviceid = res.deviceid;
-      console.log(this.user);
       this.dashboard = true;
       this.storage.set('deviceId', this.user.deviceid);
     })
+  }
+
+  toggleShowRooms() {
+    this.showRooms = !this.showRooms;
+    this.dashboard = !this.dashboard;
   }
 
 }

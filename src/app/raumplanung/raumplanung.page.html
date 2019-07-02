@@ -5,15 +5,20 @@
     </ion-buttons>
     <ion-title>
       Raumplanung
+      <ion-icon (click)="toggleShowRooms()" name="filing" style="float:right;margin-top:4px;"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="dashboard">
-  <app-dashboard [deviceId]="deviceId" ></app-dashboard>
+  <app-dashboard [deviceId]="deviceId"></app-dashboard>
 </ion-content>
 
-<ion-content *ngIf="!dashboard">
+<ion-content *ngIf="!dashboard && showRooms">
+  <app-my-rooms [deviceId]="deviceId"></app-my-rooms>
+</ion-content>
+
+<ion-content *ngIf="!dashboard && !showRooms">
     <div class="container">
         <h1>Registrierung</h1>
         <form (ngSubmit)="onSubmit()">

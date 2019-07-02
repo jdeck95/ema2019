@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import {LoadingController} from '@ionic/angular';
 import { Room } from '../../models/room';
@@ -12,6 +12,7 @@ import { RoomService } from '../../services/room.service';
 export class CreateRoomFormComponent implements OnInit {
 
   @Input('deviceId') deviceId: String;
+  @Output() roomCreated = new EventEmitter();
 
   constructor(
     private storage: Storage,
@@ -26,7 +27,6 @@ export class CreateRoomFormComponent implements OnInit {
   room = new Room('', '', '', '');
 
   async ngOnInit() {
-    console.log(this.deviceId);
     await this.getRooms();
   }
 
@@ -44,22 +44,18 @@ export class CreateRoomFormComponent implements OnInit {
     .then(myJson => {
       this.myRooms = myJson.myrooms;
       this.rooms = myJson.rooms;
-      console.log(this.myRooms, this.rooms);
       if (this.myRooms.length < 1 && this.rooms.length < 1) {
         this.noRooms = true;
-        console.log(this.noRooms);
       }
       loading.dismiss();
     });
   }
 
   createRoom() {
-    console.log('Create Room');
     this.roomService.createRoom(this.room, this.deviceId).subscribe(res => {
-      console.log(res);
       this.room = res;
-      console.log(this.room);
       this.noRooms = false;
+      this.roomCreated.next();
     })
   }
 

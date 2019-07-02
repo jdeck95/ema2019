@@ -13,11 +13,25 @@ export class DashboardComponent implements OnInit {
 
   @Input('deviceId') deviceId: String;
 
+  showCreateRoom: boolean;
+  showCalendar: boolean;
 
   constructor(
   ) { }
 
-  async ngOnInit() {
+  ngOnInit() {
+    this.showCreateRoom = false;
+    this.showCalendar = true;
+  }
+
+  openShowCreateRoom() {
+    this.showCreateRoom = true;
+    this.showCalendar = false;
+  }
+
+  openShowCalendar() {
+    this.showCreateRoom = false;
+    this.showCalendar = true;
   }
 
 }

@@ -41,12 +41,12 @@ export class CalendarViewComponent implements OnInit {
   }
 
   onEventSelected(event) {
-    console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
+    // console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
   }
 
   onTimeSelected(ev) {
-    console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
-        (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
+    // console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
+    //     (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
   }
 
 }

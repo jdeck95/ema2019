@@ -1,4 +1,14 @@
 <ion-content>
-  <!-- <app-create-room-form [deviceId]="deviceId"></app-create-room-form> -->
-  <app-calendar-view></app-calendar-view>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button style="cursor: pointer" (click)="openShowCreateRoom()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab *ngIf="showCreateRoom" vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button style="cursor: pointer" (click)="openShowCalendar()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  <app-create-room-form *ngIf="showCreateRoom" [deviceId]="deviceId" (roomCreated)="openShowCalendar()"></app-create-room-form>
+  <app-calendar-view *ngIf="showCalendar"></app-calendar-view>
 </ion-content>

@@ -11,6 +11,7 @@ import { RaumplanungPage } from './raumplanung.page';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateRoomFormComponent } from './create-room-form/create-room-form.component';
 import { CalendarViewComponent } from './calendar-view/calendar-view.component';
+import { MyRoomsComponent } from './my-rooms/my-rooms.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     NgCalendarModule
   ],
-  declarations: [RaumplanungPage, DashboardComponent, CreateRoomFormComponent, CalendarViewComponent]
+  declarations: [RaumplanungPage, DashboardComponent, CreateRoomFormComponent, CalendarViewComponent, MyRoomsComponent]
 })
 export class RaumplanungPageModule {}

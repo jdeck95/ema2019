@@ -48,7 +48,6 @@ export class MensaPage implements OnInit {
         meals.subscribe(res => {
             this.menuEntities = res.Eintrag;
             this.todaysMeal = this.getTodaysMeal();
-            console.log(this.todaysMeal);
             loading.dismiss();
         }, async (err) => {
             this.menuEntities = [];
