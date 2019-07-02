@@ -10,6 +10,7 @@ export class RoomService {
 
     private readonly createRoomBaseUrl: string = 'https://digiboard.htwk-leipzig.de/raumplanung/addroom.php?';
     private readonly getRoomsBaseUrl: string = 'https://digiboard.htwk-leipzig.de/raumplanung/getrooms.php?';
+    private readonly registerForRoomUrl : string = 'https://digiboard.htwk-leipzig.de/raumplanung/addreservation.php?';
 
     constructor(
         private http: HttpClient
@@ -25,5 +26,10 @@ export class RoomService {
     getRooms(deviceid: String) {
         const url = `${this.getRoomsBaseUrl}did=${deviceid}`;
         return this.http.get<Room>(url);
+    }
+
+    registerForRoom(deviceid, start, ende, nr) {
+        const url = `${this.registerForRoomUrl}did=${deviceid}&von=${start}&bis=${ende}&nr=${nr}`;
+        return this.http.get(url);
     }
 }
