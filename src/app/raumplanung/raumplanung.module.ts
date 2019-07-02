@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { RaumplanungPage } from './raumplanung.page';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateRoomFormComponent } from './create-room-form/create-room-form.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [RaumplanungPage, DashboardComponent]
+  declarations: [RaumplanungPage, DashboardComponent, CreateRoomFormComponent]
 })
 export class RaumplanungPageModule {}
