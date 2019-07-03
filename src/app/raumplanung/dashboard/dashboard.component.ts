@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.showCreateRoom = false;
     this.showCalendar = true;
+    this.getReservations();
   }
 
   openShowCreateRoom() {
@@ -34,6 +35,18 @@ export class DashboardComponent implements OnInit {
   openShowCalendar() {
     this.showCreateRoom = false;
     this.showCalendar = true;
+  }
+
+  getReservations() {
+    this.roomService.getRooms(this.deviceId).subscribe(res => {
+      const myrooms = res['myrooms'];
+      myrooms.forEach(room => {
+        this.roomService.getReservations(this.deviceId, room['ID']).subscribe(res => {
+          console.log(room['ID']);
+          console.log(res['reservations']);
+        });
+      });
+    })
   }
 
   makeReservation() {
