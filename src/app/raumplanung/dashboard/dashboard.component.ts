@@ -4,8 +4,10 @@ import {LoadingController} from '@ionic/angular';
 
 import { Room } from '../../models/room';
 import { RoomService } from '../../services/room.service';
+import { CalendarViewComponent } from '../calendar-view/calendar-view.component';
 
 @Component({
+  providers:[ CalendarViewComponent ],
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
@@ -18,7 +20,8 @@ export class DashboardComponent implements OnInit {
   showCalendar: boolean;
 
   constructor(
-    private roomService: RoomService
+    private roomService: RoomService,
+    private calendar: CalendarViewComponent
   ) { }
 
   ngOnInit() {
@@ -44,6 +47,7 @@ export class DashboardComponent implements OnInit {
         this.roomService.getReservations(this.deviceId, room['ID']).subscribe(res => {
           console.log(room['ID']);
           console.log(res['reservations']);
+          this.calendar.addEvent();
         });
       });
     })

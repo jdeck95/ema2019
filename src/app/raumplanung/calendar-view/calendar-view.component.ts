@@ -26,7 +26,11 @@ export class CalendarViewComponent implements OnInit {
       startTime: startTime,
       endTime: endTime,
       allDay: false
-  }]
+    }]
+  }
+
+  public addEvent() {
+    console.log('test');
   }
 
   onCurrentDateChanged(event:Date) {
