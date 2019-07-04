@@ -24,7 +24,12 @@ export class AppComponent {
       title: 'Raumplanung',
       url: '/raumplanung',
       icon: 'browsers'
-    }
+    },
+    {
+      title: 'Mobileguide',
+      url: '/mobileguide',
+      icon: 'map'
+    },
   ];
 
   constructor(

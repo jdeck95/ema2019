@@ -11,7 +11,9 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
   },
-  { path: 'raumplanung', loadChildren: './raumplanung/raumplanung.module#RaumplanungPageModule' },  { path: 'mensa', loadChildren: './mensa/mensa.module#MensaPageModule' }
+  { path: 'raumplanung', loadChildren: './raumplanung/raumplanung.module#RaumplanungPageModule' },  { path: 'mensa', loadChildren: './mensa/mensa.module#MensaPageModule' },
+  { path: 'mobileguide', loadChildren: './mobileguide/mobileguide.module#MobileguidePageModule' },
+  { path: 'modal', loadChildren: './mobileguide/modal/modal.module#ModalPageModule' }
 
 ];
 
